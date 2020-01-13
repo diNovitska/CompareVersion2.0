@@ -20,7 +20,7 @@ namespace CompareVersion2._0
             Console.WriteLine(versionCompare("1.2", "1.2.9"));
         }
 
-        public static Int32 versionCompare(string str1, string str2)
+        public static int versionCompare(string str1, string str2)
         {
             List<string> version1 = new List<string>((str1.Split('.')).ToList());
             List<string> version2 = new List<string>((str2.Split('.')).ToList());
@@ -40,20 +40,18 @@ namespace CompareVersion2._0
             string[] versionA = version1.ToArray();
             string[] versionB = version2.ToArray();
             int i = 0;
-
-
             while (i < versionA.Length && i < versionB.Length && versionA[i].Equals(versionB[i]))
             {
                 i++;
             }
             if (i < versionA.Length && i < versionB.Length)
             {
-                int diff = versionA[i].CompareTo(versionB[i]);
-                return Integer.signum(diff);
+                return versionA[i].CompareTo(versionB[i]);
+                
             }
             else
             {
-                return Integer.signum(versionA.Length - versionB.Length);
+                return versionA.Length - versionB.Length;
             }
         }
     }
